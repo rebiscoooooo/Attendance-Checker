@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Attendance Checker</title>
+    
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+
+<body>
+    
+    <div class="container">
+        <h1>Attendance Checker</h1>
+        <form id="attendanceForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="attendanceList">
+            <h2>Attendance List</h2>
+            <ul id="list"></ul>
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<style>
+
+html {
+    
+    body {
+    margin: 0;
+    padding: 0;
+    font-family: Times New Roman, sans-serif;
+    background-image: url('file:///storage/emulated/0/Download/images.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+    .form {
+    margin-bottom: 20px;
+}
+
+    .input[type="text"], button {
+    padding: 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+    .button {
+    cursor: pointer;
+}
+
+    #attendanceList {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+    ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+    ul li {
+    margin-bottom: 5px;
+}
+}
+h1{
+   color: black;
+}
+
+</style>
+
+
+<script>
+
+document.getElementById('attendanceForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    // Get input value (name)
+    let name = document.getElementById('name').value.trim();
+    
+    // Clear input field
+    document.getElementById('name').value = '';
+
+    // Validate name input
+    if (name === '') {
+        alert('Please enter your name.');
+        return;
+    }
+
+    // Add name to attendance list
+    let listItem = document.createElement('li');
+    listItem.textContent = name;
+    document.getElementById('list').appendChild(listItem);
+});
+
+</script>
